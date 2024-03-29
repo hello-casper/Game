@@ -10,6 +10,22 @@ pub fn prompt_guess() -> u32 {
     guess.trim().parse().expect("Please enter a valid number!")
 }
 
+mod secret_number;
+mod user_input;
+mod guess_checking;
+
+use secret_number::generate_secret_number;
+use user_input::prompt_guess;
+use guess_checking::check_guess;
+use std::cmp::Ordering;
+
+fn print_result(result: Ordering, secret_number: u32) {
+    match result {
+        Ordering::Less => println!("Too low!"),
+        Ordering::Greater => println!("Too high!"),
+        Ordering::Equal => println!("Congratulations! You guessed the number correctly: {}", secret_number),
+    }
+}
 
 
 fn main() {
