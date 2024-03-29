@@ -1,11 +1,4 @@
-use rand::Rng;
-
-pub fn generate_secret_number() -> u32 {
-    rand::thread_rng().gen_range(1..=100)
-}
-
 use std::io;
-
 pub fn prompt_guess() -> u32 {
     println!("Please enter your guess (between 1 and 100):");
 
@@ -16,6 +9,8 @@ pub fn prompt_guess() -> u32 {
 
     guess.trim().parse().expect("Please enter a valid number!")
 }
+
+
 
 fn main() {
     println!("Welcome to the Guessing Game!");
