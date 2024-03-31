@@ -1,3 +1,9 @@
+use rand::Rng;
+
+fn generate_secret_number() -> u32 {
+    rand::thread_rng().gen_range(1..=100)
+}
+
 use std::io;
 pub fn prompt_guess() -> u32 {
     println!("Please enter your guess (between 1 and 100):");
@@ -8,6 +14,11 @@ pub fn prompt_guess() -> u32 {
         .expect("Failed to read line");
 
     guess.trim().parse().expect("Please enter a valid number!")
+}
+use std::cmp::Ordering;
+
+fn check_guess(guess: u32, secret_number: u32) -> Ordering {
+    guess.cmp(&secret_number)
 }
 
 fn print_result(result: Ordering, secret_number: u32) {
