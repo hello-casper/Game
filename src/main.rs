@@ -26,7 +26,7 @@ fn print_result(result: Ordering, secret_number: u32) {
         Ordering::Less => println!("Too low!"),
         Ordering::Greater => println!("Too high!"),
         Ordering::Equal => println!("Congratulations! You guessed the number correctly: {}", secret_number),
-    }
+    }
 }
 
 
